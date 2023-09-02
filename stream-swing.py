@@ -40,7 +40,7 @@ if st.button('Predict Swing Weight'):
 
 # Display the rounded prediction (if available)
 if swing_weight_rounded is not None:
-    st.write(f"Predicted Swing Weight (Rounded to nearest 0.5 kg): {swing_weight_rounded:.2f} kg")
+    st.write(f"Predicted Swing Weight: {swing_weight_rounded:.2f} kg")
 
     # Describe the swing weight
     swing_weight_description = describe_swing_weight(swing_weight_rounded)
