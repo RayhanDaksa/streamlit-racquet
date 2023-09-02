@@ -9,7 +9,7 @@ def describe_swing_weight(swing_weight):
     if swing_weight > 89:
         return 'Head Heavy - Great For Power / Attacking Player'
     elif 83 < swing_weight <= 89:
-        return 'Balance Heavy - Great For All Around / Hybrid Player'
+        return 'Balance - Great For All Around / Hybrid Player'
     else:
         return 'Head Light - Great For Speed / Defensive Player'
 
