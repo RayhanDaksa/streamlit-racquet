@@ -4,6 +4,15 @@ import streamlit as st
 # Load the trained model
 swing_model = pickle.load(open('swing_model.sav', 'rb'))
 
+# Function to describe swing weight
+def describe_swing_weight(swing_weight):
+    if swing_weight > 89:
+        return 'Head Heavy - Great For Power / Attacking Player'
+    elif 83 < swing_weight <= 89:
+        return 'Balance Heavy - Great For All Around / Hybrid Player'
+    else:
+        return 'Head Light - Great For Speed / Defensive Player'
+
 # Title of the web app
 st.title('Swing Weight Calculator')
 
@@ -29,9 +38,12 @@ if st.button('Predict Swing Weight'):
         except ValueError:
             st.error("Please enter valid numerical values for Weight and Balance.")
 
-if swing_weight_rounded is not None:
-    st.write(f"Predicted Swing Weight: {swing_weight:.2f} kg")
-
 # Display the rounded prediction (if available)
 if swing_weight_rounded is not None:
     st.write(f"Predicted Swing Weight (Rounded to nearest 0.5 kg): {swing_weight_rounded:.2f} kg")
+
+    # Describe the swing weight
+    swing_weight_description = describe_swing_weight(swing_weight_rounded)
+    st.write(f"Description: {swing_weight_description}")
+
+
